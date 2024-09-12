@@ -1238,7 +1238,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
                         StepCycle = (Time.time+((stepTiming*_2DVelocityMag)*2));
                     }
                 }
-            }
+            } else if (isIdle) playerAudioSource.Stop();
         }
     }
     public void CallFootstepClip(){
