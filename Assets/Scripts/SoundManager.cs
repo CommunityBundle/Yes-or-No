@@ -4,10 +4,10 @@ using UnityEngine.Audio;
 
 public enum SoundType
 {
-    Jump,
-    Explosion,
-    Shoot,
-    // Add other sound types here
+    Walking,
+    Raining,
+    Thundering,
+    Locking
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]

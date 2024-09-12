@@ -23,7 +23,7 @@ public class Lightning : MonoBehaviour
                 {
                     StopCoroutine(fadeCoroutine);  
                 }
-                
+                SoundManager.PlaySound(SoundType.Thundering, 0.5f);
                 lightSource.intensity = flashIntensity;
                 lightSource.enabled = true;           
                 lastTime = Time.time;
