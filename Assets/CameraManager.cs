@@ -41,7 +41,10 @@ public class CameraManager : MonoBehaviour
             {
                 (playerCam.Priority, computerCam.Priority) = (computerCam.Priority, playerCam.Priority);
                 camManager.enabled = false;
-                controller.enabled = false;
+                controller.crosshairImg.gameObject.SetActive(false);
+                controller.enableMovementControl = false;
+                controller.enableCameraControl = false;
+
                 return false;
             }
         }

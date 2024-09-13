@@ -5,7 +5,7 @@ using SUPERCharacter;
 
 public class ComputerInteraction : MonoBehaviour, IInteractable
 {
-    public SUPERCharacterAIO playerCursor;
+    public SUPERCharacterAIO interacting;
     //TO DO: Move the camera, have it hit the computer.
     // Set Computer Interaction only when the computer camera is activated
 
@@ -27,7 +27,7 @@ public class ComputerInteraction : MonoBehaviour, IInteractable
     public bool Interact()
     {
         Debug.Log("Activate Protocol");
-        playerCursor.crosshairImg.gameObject.SetActive(false);
-        return true;
+        interacting.interactRange = 0;
+        return false;
     }
 }
