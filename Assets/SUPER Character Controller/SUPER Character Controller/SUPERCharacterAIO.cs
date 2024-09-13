@@ -77,7 +77,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
     bool isInFirstPerson, isInThirdPerson, perspecTog;
     bool setInitialRot = true;
     Vector3 initialRot;
-    Image crosshairImg;
+    public Image crosshairImg;
     Image stamMeter, stamMeterBG;
     Image statsPanel, statsPanelBG;
     Image HealthMeter, HydrationMeter, HungerMeter;
