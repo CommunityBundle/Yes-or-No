@@ -1,5 +1,6 @@
 //Original Code Author: Aedan Graves
 
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,7 +32,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
     //Public
     //
     //Both
-    public Camera playerCamera;
+    public CinemachineVirtualCamera playerCamera;
     public bool  enableCameraControl = true, lockAndHideMouse = true, autoGenerateCrosshair = true, showCrosshairIn3rdPerson = false, drawPrimitiveUI = false;
     public Sprite crosshairSprite;
     public PerspectiveModes cameraPerspective = PerspectiveModes._1stPerson;
@@ -75,7 +76,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
     bool isInFirstPerson, isInThirdPerson, perspecTog;
     bool setInitialRot = true;
     Vector3 initialRot;
-    Image crosshairImg;
+    public Image crosshairImg;
     Image stamMeter, stamMeterBG;
     Image statsPanel, statsPanelBG;
     Image HealthMeter, HydrationMeter, HungerMeter;
@@ -300,7 +301,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
         
         #region Camera
         maxCameraDistInternal = maxCameraDistance;
-        initialCameraFOV = playerCamera.fieldOfView;
+        initialCameraFOV = playerCamera.m_Lens.FieldOfView;
         headbobCameraPosition = Vector3.up*standingEyeHeight;
         internalEyeHeight = standingEyeHeight;
         if(lockAndHideMouse){
@@ -619,7 +620,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
                 switch(cameraPerspective){
                     case PerspectiveModes._1stPerson:{
                         Vector2 targetAngles = ((Vector2.right*playerCamera.transform.localEulerAngles.x)+(Vector2.up*p_Rigidbody.rotation.eulerAngles.y));
-                        float fovMod = FOVSensitivityMultiplier>0 && playerCamera.fieldOfView <= initialCameraFOV ? ((initialCameraFOV - playerCamera.fieldOfView)*(FOVSensitivityMultiplier/10))+1 : 1;
+                        float fovMod = FOVSensitivityMultiplier>0 && playerCamera.m_Lens.FieldOfView <= initialCameraFOV ? ((initialCameraFOV - playerCamera.m_Lens.FieldOfView) *(FOVSensitivityMultiplier/10))+1 : 1;
                         targetAngles = Vector2.SmoothDamp(targetAngles, targetAngles+(yawPitchInput*(((inputSensitivity*5)/fovMod))), ref viewRotVelRef,(Mathf.Pow(cameraWeight*fovMod,2))*Time.fixedDeltaTime, maxDelta, Time.fixedDeltaTime);
                         
                         targetAngles.x += targetAngles.x>180 ? -360 : targetAngles.x<-180 ? 360 :0;
@@ -650,7 +651,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
             case ViewInputModes.Retro:{
                 yawPitchInput = Vector2.up * (Input.GetAxis("Horizontal") * ((mouseInputInversion==MouseInputInversionModes.Y||mouseInputInversion == MouseInputInversionModes.Both) ? -1 : 1));
                 Vector2 targetAngles = ((Vector2.right*playerCamera.transform.localEulerAngles.x)+(Vector2.up*transform.localEulerAngles.y));
-                float fovMod = FOVSensitivityMultiplier>0 && playerCamera.fieldOfView <= initialCameraFOV ? ((initialCameraFOV - playerCamera.fieldOfView)*(FOVSensitivityMultiplier/10))+1 : 1;
+                float fovMod = FOVSensitivityMultiplier>0 && playerCamera.m_Lens.FieldOfView <= initialCameraFOV ? ((initialCameraFOV - playerCamera.m_Lens.FieldOfView) *(FOVSensitivityMultiplier/10))+1 : 1;
                 targetAngles = targetAngles+(yawPitchInput*((inputSensitivity/fovMod)));   
                 targetAngles.x = 0;
                 playerCamera.transform.localEulerAngles = (Vector3.right * targetAngles.x) + (Vector3.forward* (enableHeadbob? headbobCameraPosition.z : 0));
@@ -748,7 +749,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
                 StopCoroutine("SmoothRot");
                 isInThirdPerson = true;
                 isInFirstPerson = false;
-                playerCamera.fieldOfView = initialCameraFOV;
+                playerCamera.m_Lens.FieldOfView = initialCameraFOV;
                 maxCameraDistInternal = maxCameraDistInternal == 0 ? capsule.radius*2 : maxCameraDistInternal;
                 currentCameraZ = -(maxCameraDistInternal*0.85f);
                 playerCamera.transform.localEulerAngles = (Vector2)playerCamera.transform.localEulerAngles;
@@ -774,8 +775,8 @@ public class SUPERCharacterAIO : MonoBehaviour{
     void FOVKick(){
         if(cameraPerspective == PerspectiveModes._1stPerson && FOVKickAmount>0){
             currentFOVMod = (!isIdle && isSprinting) ? initialCameraFOV+(FOVKickAmount*((sprintingSpeed/walkingSpeed)-1)) : initialCameraFOV;
-            if(!Mathf.Approximately(playerCamera.fieldOfView, currentFOVMod) && playerCamera.fieldOfView >= initialCameraFOV){
-                playerCamera.fieldOfView = Mathf.SmoothDamp(playerCamera.fieldOfView, currentFOVMod,ref FOVKickVelRef, Time.deltaTime,50);
+            if(!Mathf.Approximately(playerCamera.m_Lens.FieldOfView, currentFOVMod) && playerCamera.m_Lens.FieldOfView >= initialCameraFOV){
+                playerCamera.m_Lens.FieldOfView = Mathf.SmoothDamp(playerCamera.m_Lens.FieldOfView, currentFOVMod,ref FOVKickVelRef, Time.deltaTime,50);
             }
         }
     }
@@ -1702,7 +1703,7 @@ public class SuperFPEditor : Editor{
         EditorGUILayout.Space();
         EditorGUILayout.BeginVertical(BoxPanel);
         t.enableCameraControl = EditorGUILayout.ToggleLeft(new GUIContent("Enable Camera Control","Should the player have control over the camera?"),t.enableCameraControl);
-        t.playerCamera = (Camera)EditorGUILayout.ObjectField(new GUIContent("Player Camera", "The Camera Attached to the Player."),t.playerCamera,typeof(Camera),true);
+        t.playerCamera = (CinemachineVirtualCamera)EditorGUILayout.ObjectField(new GUIContent("Player Camera", "The Camera Attached to the Player."),t.playerCamera,typeof(CinemachineVirtualCamera),true);
         t.cameraPerspective = (PerspectiveModes)EditorGUILayout.EnumPopup(new GUIContent("Camera Perspective Mode", "The current perspective of the character."),t.cameraPerspective);
         //if(t.cameraPerspective == PerspectiveModes._3rdPerson){EditorGUILayout.HelpBox("3rd Person perspective is currently very experimental. Bugs and other adverse effects may occur.",MessageType.Info);}
         
