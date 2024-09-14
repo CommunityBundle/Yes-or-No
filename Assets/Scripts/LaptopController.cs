@@ -7,6 +7,8 @@ using UnityEngine;
 public class LaptopController : MonoBehaviour, IInteractable
 {
     public SUPERCharacterAIO playerController;
+    public GameObject player;
+    public GameObject laptopCameraInteraction;
     
     public CinemachineVirtualCamera playerCamera;
     public CinemachineVirtualCamera laptopViewCamera;
@@ -19,9 +21,10 @@ public class LaptopController : MonoBehaviour, IInteractable
     IEnumerator TransitioningStates()
     {
         playerController.crosshairImg.gameObject.SetActive(false);
-        laptopViewCamera.Priority += playerCamera.Priority;
+        laptopViewCamera.Priority = 40;
         yield return new WaitForSeconds(1.2f);
         Debug.Log("Change state to Computer movement");
-        playerController.enabled = false;
+        player.SetActive(false);
+        laptopCameraInteraction.SetActive(true);
     }
 }
