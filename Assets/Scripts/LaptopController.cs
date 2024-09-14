@@ -9,7 +9,9 @@ public class LaptopController : MonoBehaviour, IInteractable
     public SUPERCharacterAIO playerController;
     public GameObject player;
     public GameObject laptopCameraInteraction;
-    
+    public InputRelaySource laptopControls;
+    public InputRelaySource laptopControlsEverything;
+
     public CinemachineVirtualCamera playerCamera;
     public CinemachineVirtualCamera laptopViewCamera;
     public bool Interact()
@@ -25,6 +27,9 @@ public class LaptopController : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(1.2f);
         Debug.Log("Change state to Computer movement");
         player.SetActive(false);
+        playerController.enabled = false;
         laptopCameraInteraction.SetActive(true);
+        laptopControls.enabled = true;
+        laptopControlsEverything.enabled = true;
     }
 }

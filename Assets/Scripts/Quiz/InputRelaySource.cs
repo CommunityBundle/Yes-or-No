@@ -20,8 +20,10 @@ public class InputRelaySource : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         // retrieve a ray based on the mouse location
-        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray mouseRay = laptopCamera.ScreenPointToRay(Input.mousePosition);
 
         // raycast to find what we have hit
         RaycastHit hitResult;

@@ -514,7 +514,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 7e-45, z: 9.285e-42, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -754,7 +754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &60082830
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9035,6 +9035,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461447637}
   m_CullTransparentMesh: 1
+--- !u!1 &469338013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 469338014}
+  - component: {fileID: 469338016}
+  - component: {fileID: 469338015}
+  m_Layer: 0
+  m_Name: LaptopCameraInteraction.
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &469338014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469338013}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.81915206, z: -0.57357633, w: 0}
+  m_LocalPosition: {x: -1.5000058, y: -19.999998, z: 19.999996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 837675099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &469338015
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469338013}
+  m_Enabled: 1
+--- !u!20 &469338016
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469338013}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 50
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 052a104e6bdaa834a9d0cba7ea20b6dc, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &484571803
 GameObject:
   m_ObjectHideFlags: 0
@@ -9989,7 +10081,7 @@ GameObject:
   - component: {fileID: 585757059}
   m_Layer: 0
   m_Name: UICamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10018,7 +10110,7 @@ Camera:
   m_GameObject: {fileID: 585757057}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.0933428, g: 0.10106797, b: 0.11320752, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -10048,7 +10140,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 052a104e6bdaa834a9d0cba7ea20b6dc, type: 2}
   m_TargetDisplay: 0
@@ -10977,23 +11069,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6817638361354391144, guid: 32fce1012f8c24c43af86f00f457f500, type: 3}
   m_PrefabInstance: {fileID: 1027118997}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &726767930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 726767924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf999f22e8b38754fa3cd8dc55e95d61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 726767926}
-  player: {fileID: 726767924}
-  Laptop: {fileID: 837675100}
-  playerCamera: {fileID: 49484874}
-  laptopViewCamera: {fileID: 713832167}
 --- !u!1 &731460416
 GameObject:
   m_ObjectHideFlags: 0
@@ -11185,7 +11260,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 6e-44, z: 1e-44, w: 3.153e-42}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 3e-45, z: 8.719e-42, w: 4.1613e-41}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -11743,6 +11818,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3c6e7525888ed841a1ae9594d877761, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1315785896}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3c6e7525888ed841a1ae9594d877761, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 469338014}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a3c6e7525888ed841a1ae9594d877761, type: 3}
       insertIndex: -1
@@ -11796,8 +11874,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 726767926}
-  playerCamera: {fileID: 0}
-  laptopViewCamera: {fileID: 0}
+  player: {fileID: 726767924}
+  laptopCameraInteraction: {fileID: 469338013}
+  laptopControls: {fileID: 1315785892}
+  laptopControlsEverything: {fileID: 1315785897}
+  playerCamera: {fileID: 49484874}
+  laptopViewCamera: {fileID: 713832167}
 --- !u!1001 &846765923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13848,9 +13930,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 49484873}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6817638361354391147, guid: 32fce1012f8c24c43af86f00f457f500, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 726767930}
     - targetCorrespondingSourceObject: {fileID: 6817638360860843948, guid: 32fce1012f8c24c43af86f00f457f500, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2135559066}
@@ -15972,7 +16051,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315785891}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3523c975cbcb19b43bc6074137442b0f, type: 3}
   m_Name: 
@@ -15996,6 +16075,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  laptopCamera: {fileID: 469338016}
 --- !u!64 &1315785893
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16038,7 +16118,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b1f85d93de559ce47b185d5cf61b6d3b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16076,13 +16156,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315785891}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7660445, y: 0, z: 0, w: 0.64278764}
-  m_LocalPosition: {x: -1.31, y: 11.37, z: 9.9}
+  m_LocalRotation: {x: 0, y: 0.7660445, z: 0.64278764, w: 0}
+  m_LocalPosition: {x: -1.1, y: 11.37, z: 9.9}
   m_LocalScale: {x: 28, y: 17, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 837675099}
-  m_LocalEulerAnglesHint: {x: -100, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -100, y: 0, z: 180}
 --- !u!114 &1315785897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16090,7 +16170,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315785891}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3523c975cbcb19b43bc6074137442b0f, type: 3}
   m_Name: 
@@ -16102,6 +16182,7 @@ MonoBehaviour:
   OnCursorInput:
     m_PersistentCalls:
       m_Calls: []
+  laptopCamera: {fileID: 469338016}
 --- !u!1 &1327117498
 GameObject:
   m_ObjectHideFlags: 0
