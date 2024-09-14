@@ -9,7 +9,6 @@ public class LaptopController : MonoBehaviour, IInteractable
     public bool Interact()
     {
         Debug.Log("Activate Computer");
-        playerController.interactRange = 0;
         return false;
     }
 }

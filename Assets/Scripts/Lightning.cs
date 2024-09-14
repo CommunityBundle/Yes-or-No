@@ -12,7 +12,6 @@ public class Lightning : MonoBehaviour
 
     private float lastTime = 0;
     private Coroutine fadeCoroutine;
-
     private void Update()
     {
         if (Time.time - lastTime > minTime)
@@ -23,7 +22,7 @@ public class Lightning : MonoBehaviour
                 {
                     StopCoroutine(fadeCoroutine);  
                 }
-                SoundManager.PlaySound(SoundType.Thundering, 0.5f);
+                SoundManager.PlaySound(SoundType.Thundering, MusicSFX.volume);
                 lightSource.intensity = flashIntensity;
                 lightSource.enabled = true;           
                 lastTime = Time.time;

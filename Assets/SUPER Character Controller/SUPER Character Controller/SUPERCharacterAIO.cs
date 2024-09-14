@@ -421,7 +421,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
         
     }
     void Update(){
-        if(!controllerPaused){
+        if(!controllerPaused && !Pause.isPaused){
         #region Input
         #if ENABLE_INPUT_SYSTEM
             MouseXY.x = Mouse.current.delta.y.ReadValue()/50;
@@ -579,7 +579,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
         #endregion
     }
     void FixedUpdate() {
-        if(!controllerPaused){
+        if(!controllerPaused && !Pause.isPaused){
 
             
 
@@ -1276,7 +1276,7 @@ public class SUPERCharacterAIO : MonoBehaviour{
                 }
                 
                 if(currentClipSet!=null && currentClipSet.Any()){
-                    playerAudioSource.PlayOneShot(currentClipSet[Random.Range(0,currentClipSet.Count())]);
+                    playerAudioSource.PlayOneShot(currentClipSet[Random.Range(0,currentClipSet.Count())],MusicSFX.volume);
                 }
             }
         }

@@ -7,6 +7,8 @@ public class SceneLoader : MonoBehaviour
     public void LoadSceneByName(string name)
     {
         SceneManager.LoadScene(name);
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 }
 

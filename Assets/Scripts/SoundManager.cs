@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 
 public enum SoundType
 {
@@ -26,8 +27,11 @@ public class SoundManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
-
-    public static void PlaySound(SoundType sound, float volume = 1)
+    private void Update()
+    {
+        audioSource.volume =  MusicSFX.volume;
+    }
+    public static void PlaySound(SoundType sound, float volume)
     {
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
