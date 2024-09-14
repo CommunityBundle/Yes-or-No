@@ -39,6 +39,12 @@ public class InputRelaySink : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>();
         Raycaster.Raycast(mouseEvent, results);
 
+
+        //foreach(var result in results)
+        //{
+        //    Debug.Log(result.gameObject.name);
+        //}
+
         bool sendMouseDown = Input.GetMouseButtonDown(0);
         bool sendMouseUp = Input.GetMouseButtonUp(0);   
         bool isMouseDown = Input.GetMouseButton(0);

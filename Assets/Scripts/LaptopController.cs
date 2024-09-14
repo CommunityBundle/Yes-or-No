@@ -9,11 +9,18 @@ public class LaptopController : MonoBehaviour, IInteractable
     public SUPERCharacterAIO playerController;
     public GameObject player;
     public GameObject laptopCameraInteraction;
+    public GameObject laptop;
+    private Collider laptopCollider;
     public InputRelaySource laptopControls;
     public InputRelaySource laptopControlsEverything;
 
     public CinemachineVirtualCamera playerCamera;
     public CinemachineVirtualCamera laptopViewCamera;
+
+    private void Start()
+    {
+        laptopCollider = laptop.GetComponent<Collider>();
+    }
     public bool Interact()
     {
         StartCoroutine(TransitioningStates());
@@ -31,5 +38,7 @@ public class LaptopController : MonoBehaviour, IInteractable
         laptopCameraInteraction.SetActive(true);
         laptopControls.enabled = true;
         laptopControlsEverything.enabled = true;
+        laptopCollider.enabled = false;
+
     }
 }
