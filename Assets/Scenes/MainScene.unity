@@ -1179,6 +1179,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4734262382170157316, guid: 6e4f70b94a51e664b887732fbe561f87, type: 3}
+      propertyPath: OnCursorInput.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734262382170157316, guid: 6e4f70b94a51e664b887732fbe561f87, type: 3}
+      propertyPath: OnCursorInput.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1168538841}
+    - target: {fileID: 4734262382170157316, guid: 6e4f70b94a51e664b887732fbe561f87, type: 3}
+      propertyPath: OnCursorInput.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnCursorInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734262382170157316, guid: 6e4f70b94a51e664b887732fbe561f87, type: 3}
+      propertyPath: OnCursorInput.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InputRelaySink, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5402493780583539501, guid: 6e4f70b94a51e664b887732fbe561f87, type: 3}
       propertyPath: m_Name
       value: Screen
@@ -8352,7 +8368,6 @@ GameObject:
   m_Component:
   - component: {fileID: 591821067}
   - component: {fileID: 591821069}
-  - component: {fileID: 591821068}
   m_Layer: 0
   m_Name: UICamera
   m_TagString: Untagged
@@ -8375,14 +8390,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1757920931}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &591821068
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591821066}
-  m_Enabled: 1
 --- !u!20 &591821069
 Camera:
   m_ObjectHideFlags: 0
@@ -11144,6 +11151,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124543216}
   m_CullTransparentMesh: 1
+--- !u!114 &1168538841 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1739225121375123765, guid: 433b3bb7f6e56b648b1c8e8e15159c90, type: 3}
+  m_PrefabInstance: {fileID: 1469499103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43a1da631624b74db511e849e13efc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1184881580
 PrefabInstance:
   m_ObjectHideFlags: 0
