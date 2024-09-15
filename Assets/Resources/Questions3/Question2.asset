@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 138bde2a481d89844b977a953654e2a8, type: 3}
-  m_Name: Question
+  m_Name: Question2
   m_EditorClassIdentifier: 
-  question: What is your prefered pet.
+  question: "\u2588\u2588\u2588\u2588\u2588\u2588?"
   answer:
-  - Cat.
-  - Dog.
-  - Bird.
-  - Fish.
-  - "\u2588\u2588\u2588\u2588\u2588\u2588."
+  - Huh?
+  - What?
+  - What are you saying?
+  - Hello?
+  - Is anyone there?
   isChange: 0
   count: 0
