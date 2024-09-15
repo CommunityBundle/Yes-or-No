@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Cinemachine;
 using SUPERCharacter;
 using UnityEngine;
+using Interfaces;
 
-public class LaptopController : MonoBehaviour, IInteractable
+public class LaptopController : MonoBehaviour, IInteractable, IOutlineable
 {
     public SUPERCharacterAIO playerController;
     public GameObject player;
@@ -16,6 +17,8 @@ public class LaptopController : MonoBehaviour, IInteractable
 
     public CinemachineVirtualCamera playerCamera;
     public CinemachineVirtualCamera laptopViewCamera;
+    Outline outline;
+    bool isCollideable = false;
 
     private void Start()
     {
@@ -40,5 +43,15 @@ public class LaptopController : MonoBehaviour, IInteractable
         laptopControlsEverything.enabled = true;
         laptopCollider.enabled = false;
 
+    }
+
+    public bool ShowOutline()
+    {
+        if (!isCollideable)
+        {
+            outline.enabled = true;
+            return true;
+        }
+        return false;
     }
 }
