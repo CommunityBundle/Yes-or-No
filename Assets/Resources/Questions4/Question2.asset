@@ -15,6 +15,6 @@ MonoBehaviour:
   question: Uh Oh.
   answer:
   - He's dead?
-  - I lied
+  - I lied.
   isChange: 0
   count: 0
