@@ -61,7 +61,15 @@ public class QuestionSetUp2 : MonoBehaviour
         isScreen1 = false;
     }
 
+    IEnumerator ChangeButtonText(float delay)
+        {
+            yield return new WaitForSeconds(delay);
 
+            foreach (var button in answerButtons)
+            {
+                button.SetAnswerText("i hate myself!");
+            }
+        }
     int index = -1;
     public void SelectNewQuestion()
     {
@@ -87,7 +95,11 @@ public class QuestionSetUp2 : MonoBehaviour
         //          button.SetAnswerText("Disagree");
         //      }
         //  }
-
+         if (questions.Count == 0)
+        {
+            StartCoroutine(ChangeButtonText(.5f));
+           
+        }
     }
     public void SetQuestionValues()
     {

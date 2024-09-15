@@ -75,6 +75,8 @@ public class QuestionSetUp3 : MonoBehaviour
         {
             StartCoroutine(ChangeButtonText(.5f));
            
+        } else if(questions.Count == 4){
+            StartCoroutine(ChangeButtonText1(.25f));
         }
         if (questions.Count == 0)
         {    
@@ -88,6 +90,15 @@ public class QuestionSetUp3 : MonoBehaviour
             foreach (var button in answerButtons)
             {
                 button.SetAnswerText("Disagree");
+            }
+        }
+        IEnumerator ChangeButtonText1(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+
+            foreach (var button in answerButtons)
+            {
+                button.SetAnswerText("Yes");
             }
         }
 
