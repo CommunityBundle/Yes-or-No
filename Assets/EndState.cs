@@ -9,8 +9,10 @@ public class EndState : MonoBehaviour
     [SerializeField] AudioSource rainSource;
     [SerializeField] AudioSource thunderSource;
     [SerializeField] AudioSource JumpScare;
+    [SerializeField] ReturnToPlayerState returnToPlayerState;
 
     void Start(){
+        returnToPlayerState.enabled = false;
         rainSource.enabled = false;
         thunderSource.enabled = false;
         JumpScare.PlayDelayed(0.01f);

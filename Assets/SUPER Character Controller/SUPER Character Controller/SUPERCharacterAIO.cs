@@ -19,13 +19,18 @@ using UnityEngine.InputSystem.Interactions;
 // create compatibility layers for Unity 2017 and 2018
 // better implement animation calls(?)
 // more camera animations
+
 namespace SUPERCharacter{
+public enum States{
+    PlayerState,
+    ComputerState
+}
 [RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(CapsuleCollider))][AddComponentMenu("SUPER Character/SUPER Character Controller")]
 public class SUPERCharacterAIO : MonoBehaviour{
     #region Variables
-
+    public States defaultState;
     public bool controllerPaused = false;
-
+    
     #region Camera Settings
     [Header("Camera Settings")]
     //

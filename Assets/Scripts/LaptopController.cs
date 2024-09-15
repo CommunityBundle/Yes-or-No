@@ -17,12 +17,12 @@ public class LaptopController : MonoBehaviour, IInteractable, IOutlineable
 
     public CinemachineVirtualCamera playerCamera;
     public CinemachineVirtualCamera laptopViewCamera;
-    Outline outline;
-    bool isCollideable = false;
+    public Outline outline;
 
     private void Start()
     {
         laptopCollider = laptop.GetComponent<Collider>();
+        outline.enabled = false;
     }
     public bool Interact()
     {
@@ -33,7 +33,7 @@ public class LaptopController : MonoBehaviour, IInteractable, IOutlineable
     IEnumerator TransitioningStates()
     {
         playerController.crosshairImg.gameObject.SetActive(false);
-        laptopViewCamera.Priority = 40;
+        (playerCamera.Priority, laptopViewCamera.Priority) = (laptopViewCamera.Priority, playerCamera.Priority);
         yield return new WaitForSeconds(1.2f);
         Debug.Log("Change state to Computer movement");
         player.SetActive(false);
@@ -42,16 +42,16 @@ public class LaptopController : MonoBehaviour, IInteractable, IOutlineable
         laptopControls.enabled = true;
         laptopControlsEverything.enabled = true;
         laptopCollider.enabled = false;
-
+        playerController.defaultState = States.ComputerState;
     }
 
-    public bool ShowOutline()
+    public void ShowOutline()
     {
-        if (!isCollideable)
-        {
-            outline.enabled = true;
-            return true;
-        }
-        return false;
+        outline.enabled = true;
+    }
+
+    public void DisableOutline()
+    {
+        outline.enabled = false;
     }
 }

@@ -11,6 +11,7 @@ namespace Interfaces
 
     public interface IOutlineable
     {
-        public bool ShowOutline();
+        public void ShowOutline();
+        public void DisableOutline();
     }
 }
